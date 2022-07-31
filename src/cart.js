@@ -1,7 +1,6 @@
-
 /**
-  * ! Funciones de dentro del carrito de compras
-  **/
+ * ! Funciones de dentro del carrito de compras
+ **/
 
 let label = document.getElementById("label");
 let ShoppingCart = document.getElementById("shopping-cart");
@@ -21,14 +20,15 @@ let generateCartItems = () => {
       .map((x) => {
         let { id, item } = x;
         let search = shopItemsData.find((y) => y.id === id) || [];
+        let { img, name, price } = search;
         return `
       <div class="cart-item">
-        <img width="100%" src=${search.img} alt="" />
+        <img width="100%" src=${img} alt="" />
         <div class="details">
 
           <div class="title-price-x">
               <h5 class="title-price">
-                <p>${search.name}</p>
+                <p>${name}</p>
                 
               </h5>
               
@@ -38,7 +38,7 @@ let generateCartItems = () => {
           <div class="precioQuitar"> 
          
          
-          <p class="cart-item-price">$ ${search.price}</p>
+          <p class="cart-item-price">U$D ${price}</p>
 
          
           
@@ -56,7 +56,7 @@ let generateCartItems = () => {
               <i onclick="increment(${id})" class="bi bi-plus-lg"></i>
           </div>
 
-          <h3>$ ${item * search.price}</h3>
+          <h3>U$D ${item * search.price}</h3>
         </div>
       </div>
       </div>
@@ -64,9 +64,9 @@ let generateCartItems = () => {
       })
       .join(""));
   } else {
-/**
-  * !Si el carrito está vacio muesta este mensaje
-  **/
+    /**
+     * !Si el carrito está vacio muesta este mensaje
+     **/
 
     ShoppingCart.innerHTML = ``;
     label.innerHTML = `
@@ -75,11 +75,7 @@ let generateCartItems = () => {
       <button class="HomeBtn">Volver al inicio</button>
     </a>
     `;
-
-   
-
   }
-  
 };
 
 generateCartItems();
@@ -114,71 +110,55 @@ let decrement = (id) => {
   basket = basket.filter((x) => x.item !== 0);
   generateCartItems();
   localStorage.setItem("data", JSON.stringify(basket));
-
-
-
 };
 
 let update = (id) => {
   let search = basket.find((x) => x.id === id);
-   console.log(search.item);
+  console.log(search.item);
   document.getElementById(id).innerHTML = search.item;
-  calculation();
+  calculation(); //Calcula el total de los elementos del carrito//
   TotalAmount();
 };
 
 let removeItem = (id) => {
   let selectedItem = id;
-   console.log(selectedItem.id);
+  console.log(selectedItem.id);
   basket = basket.filter((x) => x.id !== selectedItem.id);
   generateCartItems();
   TotalAmount();
+  calculation(); //Calcula el total de los elementos del carrito//
   localStorage.setItem("data", JSON.stringify(basket));
-
-  
 };
 
-
 /**
-  * ! Borrar productos del carrito totales
-  **/
+ * ! Borrar productos del carrito totales
+ **/
 
 let clearCart = () => {
   basket = [];
   generateCartItems();
+  calculation(); //Calcula el total de los elementos del carrito//
   localStorage.setItem("data", JSON.stringify(basket));
 
-
-/**
- * ! Aplicando alertas agregado exitosamente
- **/
+  /**
+   * ! Aplicando alertas agregado exitosamente
+   **/
 
   Swal.fire({
-    title: 'Es por nuestros precios?',
-    
-    icon: 'question',
+    title: "Es por nuestros precios?",
+
+    icon: "question",
     showConfirmButton: true,
     showCancelButton: true,
-    confirmButtonColor: 'green',
-    cancelButtonColor: 'red',
-    confirmButtonText: 'Sí',
-    cancelButtonText: 'No',
+    confirmButtonColor: "green",
+    cancelButtonColor: "red",
+    confirmButtonText: "Sí",
+    cancelButtonText: "No",
   }).then((result) => {
     if (result.isConfirmed) {
-      Swal.fire(
-        'Gracias por tu opinion',
-        'Trabajaremos en ello!',
-        'success'
-      )
+      Swal.fire("Gracias por tu opinion", "Trabajaremos en ello!", "success");
     }
-  }) 
-
-
-
-
-
- 
-  
+  });
 };
 
 let TotalAmount = () => {
@@ -191,22 +171,17 @@ let TotalAmount = () => {
         return item * search.price;
       })
       .reduce((x, y) => x + y, 0);
-      
-   console.log(amount);
-   
+
+    console.log(amount);
+
     label.innerHTML = `
     <div class="totalApagar">
     <h2>Total a Pagar : U$D ${amount}</h2>
-    <button class="checkout">Pagar</button>
+    <a href="index.html"> <button onclick= "clearCart()" class="checkout">Pagar</button> </a>
     
-    <button onclick="clearCart()" class="removeAll">Borrar Carrito</button>
+    <button onclick="clearCart()"  class="removeAll">Borrar Carrito</button>
     </div>`;
-  
   } else return;
-
- 
 };
 
-
 TotalAmount();
-
