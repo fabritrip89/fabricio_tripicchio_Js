@@ -1,0 +1,322 @@
+/**
+* ! Estilos generales de la página
+**/
+
+* {
+  margin: 0;
+  padding: 2.5px;
+  box-sizing: border-box;
+}
+
+/**
+* ! Estilos de fondo body Index
+**/
+
+.fondoIndex {
+  font-family: sans-serif;
+  display: grid;
+  grid-template-columns: 1fr;
+  background-image: linear-gradient(90deg, #74ebd525 0%, #9face631 80%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-image: url(../images/imagenIndex.png);
+  background-size: 450px;
+
+}
+
+/**
+* ! Estilos de fondo body Carrito
+**/
+
+.fondoCart {
+  background-image: url(../images/padelCart.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 650px;
+}
+
+i {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+/**
+* ! Estilos icono página padel rock, registrate.
+**/
+.nombrePagina {
+display: flex;
+justify-content: center;
+  color: #fff;
+  font-family: 'Rock Salt';
+  font-size: 25px;
+  font-weight: 500px;
+  text-transform: uppercase;
+  text-shadow: 2px 5px #000;
+
+}
+
+.estiloRegistrate{
+  display: flex;
+  justify-content: flex-start;
+  color: #fff;
+  text-shadow: 2px 5px #000;
+}
+
+
+
+
+
+/**
+  * ! Estios de navegador
+  **/
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #212529;
+  color: rgb(255, 255, 255);
+  padding: 25px 60px;
+  margin-bottom: 30px;
+  opacity: 80%;
+
+}
+
+
+
+
+
+/**
+  * ! Estilos Carrito de compras
+  **/
+
+.cart {
+
+  display: flex;
+  position: relative;
+  background-color: #fff;
+  color: #212529;
+  font-size: 30px;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+/**
+  * ! Estilos Numero de carrito de compras
+  **/
+
+.cartAmount {
+  position: absolute;
+  top: -15px;
+  right: -10px;
+  font-size: 16px;
+  background-color: red;
+  color: white;
+  padding: 3px;
+  border-radius: 3px;
+}
+
+/**
+  * ! estilos articulos de compras
+  **/
+
+.shop {
+  display: grid;
+  grid-template-columns: repeat(4, 223px);
+  gap: 30px;
+  justify-content: center;
+
+}
+
+@media (max-width: 1000px) {
+  .shop {
+    grid-template-columns: repeat(2, 223px);
+  }
+}
+
+@media (max-width: 500px) {
+  .shop {
+    grid-template-columns: repeat(1, 223px);
+  }
+}
+
+/**
+  * ! estilos fondo de paletas
+  **/
+.item {
+  border: 2px solid #212529;
+  border-radius: 4px;
+  background-color: rgba(205, 205, 203, 0.814);
+}
+
+/**
+  * ! estilos fondo de descripción
+  **/
+.details {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  gap: 5px;
+  background-color: rgba(205, 205, 203, 0.714);
+  border-radius: 2px;
+}
+
+.price-quantity {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  font-size: 16px;
+
+}
+
+.bi-dash-lg {
+  color: red;
+  text-decoration: bold;
+}
+
+.bi-plus-lg {
+  color: green;
+  text-decoration: bold;
+}
+
+/**
+  * ! Estilos de etiquetas y botones
+  **/
+
+.text-center {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.HomeBtn,
+.checkout,
+.removeAll {
+  background-color: #212529;
+  color: white;
+  border: none;
+  padding: 6px;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.checkout {
+  background-color: rgb(0, 223, 0);
+}
+
+.removeAll {
+  background-color: red;
+}
+
+.bi-x-lg {
+  color: red;
+  font-weight: bold;
+}
+
+/**
+  * ! Estilos generales carrito de compra dentro de div
+  **/
+
+.shopping-cart {
+  display: grid;
+  grid-template-columns: repeat(1, 300px);
+  justify-content: center;
+  gap: 0px;
+
+}
+
+/**
+  * ! Estilos generales carrito
+  **/
+
+.cart-item {
+  border: 2px solid #0d0d0d;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title-price-x {
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
+  margin: 0.25rem;
+  text-align: center;
+
+}
+
+.title-price {
+  display: block;
+  align-items: center;
+  background-color: rgb(154, 154, 154);
+  border-radius: 6px;
+  text-align: center;
+  padding: 0.5rem;
+  padding-bottom: -1rem;
+  margin: 0%;
+}
+
+.cart-item-price {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #212529;
+  color: rgb(255, 255, 255);
+  border-radius: 3px;
+  padding: 5px;
+  text-align: center;
+}
+
+.totalApagar {
+  background-color: rgba(205, 205, 203, 0.714);
+}
+
+/* centrar en carrito iframe cruz y mas o menos*/
+
+.cruzItem {
+  text-align: center;
+
+
+}
+
+/*Boton mas y menos de carrito*/
+.masmenosCarrito {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  font-size: 16px;
+  text-align: center;
+
+}
+
+/*Precio o quitar de carrito*/
+
+.precioQuitar {
+  display: block;
+  font-size: 20px;
+
+
+}
+
+
+/**
+  * ! Estilos footer
+  **/
+
+.canchas {
+  color: #000;
+  background-color: #000;
+}
