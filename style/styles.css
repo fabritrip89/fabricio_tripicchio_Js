@@ -234,7 +234,7 @@ justify-content: center;
   display: grid;
   grid-template-columns: repeat(1, 300px);
   justify-content: center;
-  gap: 0px;
+  gap: 2px;
 
 }
 
@@ -247,6 +247,7 @@ justify-content: center;
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
+  gap: 2px;
 }
 
 .title-price-x {
